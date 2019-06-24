@@ -1,0 +1,39 @@
+﻿<Window x:Class="lab_04_WPF_starter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_04_WPF_starter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="Auto">
+    <Grid Background="Blue" Height="506" Margin="0,0,-0.4,-0.4" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width= "*" />
+            <ColumnDefinition Width= "*" />
+            <ColumnDefinition Width= "*" />
+            <ColumnDefinition Width= "*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height= "*" />
+            <RowDefinition Height= "*" />
+            <RowDefinition Height= "*" />
+            <RowDefinition Height= "*" />
+        </Grid.RowDefinitions>
+        <Button x:Name="Button01" Background="Blue" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Click="Button01_Click" BorderBrush="Blue"/>
+        <TextBox x:Name="Text01" Background="Blue" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" TextChanged="Text01_TextChanged" TextAlignment="Center" FontWeight="Bold" BorderBrush="Blue"/>
+        <ListBox x:Name="List01" Background="Blue" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" SelectionChanged="List01_SelectionChanged" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="White"/>
+        <ComboBox x:Name="Combobox01" Background="Red" Grid.Column="3" Height="127" Margin="0.2,0,0.2,126.2" Grid.RowSpan="3" VerticalAlignment="Bottom" SelectionChanged="Combobox01_SelectionChanged"/>
+
+        <Path Grid.Row="0" Grid.Column="0" Stroke="White" StrokeThickness="75" Stretch="Fill" Grid.ColumnSpan="4" Margin="0,0,0,0" Grid.RowSpan="4">
+            <Path.Data>
+                <LineGeometry StartPoint="4,0" EndPoint="0,4" />
+            </Path.Data>
+        </Path>
+        <Path Grid.Row="0" Grid.Column="0" Stroke="White" StrokeThickness="75" Stretch="Fill" Grid.ColumnSpan="4" Margin="0,0,0,0" Grid.RowSpan="4">
+            <Path.Data>
+                <LineGeometry StartPoint="0,0" EndPoint="1,1" />
+            </Path.Data>
+        </Path>
+
+    </Grid>
+</Window>

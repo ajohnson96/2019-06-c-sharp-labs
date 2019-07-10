@@ -1,0 +1,14 @@
+﻿<Window x:Class="lab_17_rabbit_explosion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_17_rabbit_explosion"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="auto" Width="auto">
+    <Grid>
+        <ListBox Name="ListBox01" Background="LightGray" HorizontalAlignment="Left" Height="226" Margin="129,270,0,0" VerticalAlignment="Top" Width="521" SelectionChanged="ListBox_SelectionChanged"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="398,136,0,0" VerticalAlignment="Top" Width="252" Height="78" Click="Button_Click"/>
+        <Image Name="Rabbit01" Margin="29,38,529.6,291.6" Source="3664_rabbit[1].jpg" Stretch="Fill" Opacity="1"/>
+    </Grid>
+</Window>

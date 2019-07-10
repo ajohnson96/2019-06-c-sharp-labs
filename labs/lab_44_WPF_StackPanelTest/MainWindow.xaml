@@ -1,0 +1,35 @@
+﻿<Window x:Class="lab_44_WPF_StackPanelTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_44_WPF_StackPanelTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="auto" Width="auto">
+    <Grid Background="SeaShell">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <TabControl x:Name="TabPanel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Employees" Background="#fee" Name="SurnameTab">
+                <ListView Margin="10" Name="ListViewEmployees">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding EmployeeID}"/>
+                            <GridViewColumn Header="First Name" Width="120" DisplayMemberBinding="{Binding FirstName}"/>
+                            <GridViewColumn Header="Surname" Width="120" DisplayMemberBinding="{Binding LastName}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Timers;
 
 namespace tests
 {
@@ -50,6 +52,12 @@ namespace tests
     public class Eng35Tests
     {
         static List<Cat> cats = new List<Cat>();
+        private static int numberOfRabbits = 1;
+        private static System.Timers.Timer myTimer;
+        private static int elapsedTime;
+        private static bool DoOnce;
+        static int limit;
+
         // pass in a sentence, return an array of individual words
         public static string[] CreateArrayFromSentence(string sentence)
         {
@@ -208,6 +216,40 @@ namespace tests
             }
 
             return sum;
+        }
+
+        public static int RabbitExplosion(int timeEstimate)
+        {
+            var pause = new ManualResetEvent(false);
+            limit = timeEstimate;
+            elapsedTime = 0;
+            numberOfRabbits = 1;
+
+            Console.WriteLine($"\n\n=====RABBIT EXPLOSION=====");
+
+            myTimer = new System.Timers.Timer();
+            myTimer.Interval = 1000;
+            myTimer.Elapsed += DoubleRabbits;
+            myTimer.AutoReset = true;
+            myTimer.Enabled = true;
+            pause.WaitOne(limit * 1001);
+
+            return numberOfRabbits;
+        }
+
+        static void DoubleRabbits(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            if (elapsedTime >= limit)
+            {
+                myTimer.Enabled = false;
+                Console.WriteLine($"\t\tRabbit population reached {numberOfRabbits} in {elapsedTime} seconds!");
+            }
+            else if (elapsedTime < limit)
+            {
+                elapsedTime += 1;
+                numberOfRabbits *= 2;
+                Console.WriteLine($"\t\t{elapsedTime} seconds in, the rabbit population is {numberOfRabbits}");
+            }
         }
     }
 

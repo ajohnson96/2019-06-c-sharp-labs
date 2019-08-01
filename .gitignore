@@ -328,3 +328,6 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# ignore this folder as it contains an SQL password
+lab_68_SQL_CRUD_App/

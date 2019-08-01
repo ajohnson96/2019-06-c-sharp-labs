@@ -1,11 +1,16 @@
 using NUnit.Framework;
 using lab_22_first_test;
+using snap_lab_04_Exam;
 using tests;
+using System.Threading;
 
 namespace Tests
 {
     public class NUnitTests
     {
+        // initialise pause variable
+        static ManualResetEvent pause = new ManualResetEvent(false);
+
         [SetUp]
         public void Setup()
         {
@@ -104,6 +109,17 @@ namespace Tests
         public void Array_Loop_Queue_Stack_Test(int[] array, int expected)
         {
             var actual = Eng35Tests.Array_Loop_Queue_Static(array);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(2, 4)]
+        [TestCase(3, 8)]
+        [TestCase(4, 16)]
+        [TestCase(5, 32)]
+        //[TestCase(10000, 10)]
+        public void RabbitExplosionTest(int seconds, int expected)
+        {
+            var actual = Eng35Tests.RabbitExplosion(seconds);
             Assert.AreEqual(expected, actual);
         }
     }

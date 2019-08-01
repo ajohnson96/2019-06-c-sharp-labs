@@ -34,6 +34,7 @@ namespace lab_48_business_search
         {
             InitializeComponent();
             Initialise();
+            CheckCurrentTab();
         }
 
         void Initialise()
@@ -51,17 +52,7 @@ namespace lab_48_business_search
             ListViewEmployees.ItemsSource = employees;
 
             ComboBoxCity.ItemsSource = cities;
-
-            currentTab = "Employee";
         }
-
-        private void ListViewEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e){}
-
-        private void ListViewCustomers_SelectionChanged(object sender, SelectionChangedEventArgs e){}
-
-        private void ListViewProducts_SelectionChanged(object sender, SelectionChangedEventArgs e){}
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e) {}
 
         private void InputName_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -195,13 +186,34 @@ namespace lab_48_business_search
 
         private void ComboBoxCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var city = ComboBoxCity.SelectedItem;
-            MessageBox.Show($"You chose city {city}");
-            using (var db = new NorthwindEntities())
+            CheckCurrentTab();
+
+            if(currentTab == "Customer")
             {
-                searchCustomers = db.Customers.Where(c => c.City == (string)city).ToList();
-                ListViewCustomers.ItemsSource = null;
-                ListViewCustomers.ItemsSource = searchCustomers;
+                var city = ComboBoxCity.SelectedItem;
+                MessageBox.Show($"You chose city {city}");
+                using (var db = new NorthwindEntities())
+                {
+                    searchCustomers = db.Customers.Where(c => c.City == (string)city).ToList();
+                    ListViewCustomers.ItemsSource = null;
+                    ListViewCustomers.ItemsSource = searchCustomers;
+                }
+            }
+        }
+
+        private void CheckCurrentTab()
+        {
+            if (TabControl01.SelectedIndex == 0)
+            {
+                currentTab = "Employee";
+            }
+            if (TabControl01.SelectedIndex == 1)
+            {
+                currentTab = "Product";
+            }
+            if (TabControl01.SelectedIndex == 2)
+            {
+                currentTab = "Customer";
             }
         }
     }

@@ -1,0 +1,34 @@
+﻿@model DotNetAppSqlDb.Models.Hair
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hair</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HairColour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HairColour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HairLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HairLength)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HairID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\lab_22_first_test\lab_22_first_test.csproj" />
+    <ProjectReference Include="..\snap_lab_04_Exam\snap_lab_04_Exam.csproj" />
     <ProjectReference Include="..\tests\tests.csproj" />
   </ItemGroup>
 
